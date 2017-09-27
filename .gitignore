@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+.idea/
+ng2-admin/node_modules/
+ng2-admin/package-lock.json
+ng2-admin/dist/
+ng2-client/node_modules/
+ng2-client/package-lock.json
+ng2-client/dist/

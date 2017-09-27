@@ -1,0 +1,31 @@
+<div class="vertical-scroll">
+  <table class="table">
+    <tr>
+      <th>#</th>
+      <th>Mail</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let item of tableItems; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{item.mail}}</td>
+      <td><button [routerLink]="['/pages/edit-alias/', i]" class="btn btn-default ion-edit"></button>
+      <button (click)="saveIndexForDel(i)" class="btn btn-default ion-close-round" data-toggle="modal" data-target="#myModal"></button></td>
+    </tr>
+  </table>
+  <div class="modal fade" id="myModal" role="dialog" >
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="background-color: #3b5998">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete the user?</h4>
+        </div>
+        <div class="modal-footer">
+          <button (click)="delAlias()" class="btn btn-default ion-close-round"> Delete</button>
+          <button type="button" class="btn btn-default hideModal" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

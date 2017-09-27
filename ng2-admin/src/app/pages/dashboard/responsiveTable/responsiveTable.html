@@ -1,0 +1,21 @@
+<div class="vertical-scroll">
+  <table class="table">
+    <tr>
+      <th>#</th>
+      <th>Mail</th>
+      <th>Login</th>
+      <th>First Name</th>
+      <th>Second Name</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let item of tableItems; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{item.mail}}</td>
+      <td>{{item.uid}}</td>
+      <td>{{item.givenName}}</td>
+      <td>{{item.sn}}</td>
+      <td><button [routerLink]="['/pages/edit-user/', i]" class="btn btn-default ion-edit"></button>
+      <button (click)="delUser(i)" class="btn btn-default ion-close-round"></button></td>
+    </tr>
+  </table>
+</div>

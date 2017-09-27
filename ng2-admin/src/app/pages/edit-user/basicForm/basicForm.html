@@ -1,0 +1,70 @@
+<div *ngIf="!getData || showMsg" class="alert alert-warning">
+  {{message}}
+</div>
+
+<form *ngIf="getData">
+  <div class="form-group">
+    <label for="UID">UID</label>
+    <input class="form-control" [(ngModel)]="item.uid" id="UID" name="item.uid" readonly>
+  </div>
+  <div class="form-group">
+    <label for="givenName">First Name</label>
+    <input class="form-control" [(ngModel)]="item.givenName" [ngClass]="{'warning': showMsg && item.givenName === ''}" id="givenName" name="item.givenName">
+  </div>
+  <div class="form-group">
+    <label for="givenName">Second Name</label>
+      <input class="form-control" [(ngModel)]="item.sn" [ngClass]="{'warning': showMsg && item.sn === ''}" id="SN" name="item.sn">
+  </div>
+  <div class="form-group">
+    <label for="mail">Mail</label>
+    <input class="form-control" [(ngModel)]="item.mail" id="mail" name="item.mail" readonly>
+  </div>
+  <label>Shadow Address</label>
+  <ul class="form-group" >
+    <li *ngFor="let address of item.shadowAddress; let i = index">
+      <span *ngIf="address !== ''" class="listContent">
+        <button class="btn btn-warning btn-sm ion-close-round" style="margin-left: 25px;" (click)="removeAddressLine(i)"></button>
+        <button class="btn btn-default btn-sm ion-edit" style="margin-left: 5px;" (click)="editAddressLine(i)"></button>
+        <span class="showAddress">{{address}}@freshcode.org</span>
+
+        <span class="template template-hide">
+          <input class="form-control editTemplateInput" [value]="editAddressValue" [(ngModel)]="editAddressValue" name="editAddressValue">
+          <button class="btn btn-default ion-checkmark-round" (click)="modifyAddressLine()"></button>
+        </span>
+
+      </span>
+    </li>
+  </ul>
+  <div class="addAddressBlock">
+    <input class="form-control with-btn" [(ngModel)]="newAddress" name="newAddress">
+    <button class="btn btn-default ion-plus-round" (click)="addAddressLine()"></button>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isChat" [label]="'Chat'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isGit" [label]="'Git'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isPost" [label]="'Mail'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isFile" [label]="'Cloud'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <button class="btn btn-success" (click)="submitForm()">Submit</button>
+</form>
+<hr>
+<form *ngIf="getData">
+  <h3>
+    Change Password
+  </h3>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="checkPassword.value1" class="form-control" [ngClass]="{'error': checkPassword.err}" id="password" placeholder="Enter password" name="checkPassword.value1">
+    </div>
+    <div class="form-group">
+      <label for="confPassword">Confirm Password</label>
+      <input type="password" [(ngModel)]="checkPassword.value2" class="form-control" [ngClass]="{'error': checkPassword.err}" id="confPassword" placeholder="Enter password again" name="checkPassword.value2">
+    </div>
+  <button class="btn btn-success" (click)="submitFormPassword()">Save Password</button>
+</form>

@@ -1,0 +1,35 @@
+<div *ngIf="showMsg" class="alert alert-warning">
+  {{message}}
+</div>
+
+
+<form>
+  <div class="form-group">
+    <label for="UID">Name</label>
+    <input class="form-control" [(ngModel)]="item.uid" [ngClass]="{'warning': showMsg && item.uid === ''}" id="UID" name="item.uid">
+  </div>
+
+  <label>User's Address</label>
+  <ul class="form-group" >
+    <li *ngFor="let user of item.mailForwardingAddress; let i = index">
+      <span *ngIf="user !== ''" class="listContent">
+        <button class="btn btn-warning btn-sm ion-close-round" style="margin-left: 25px;" (click)="removeUser(i)"></button>
+        <span class="showAddress">{{user}}</span>
+      </span>
+    </li>
+  </ul>
+
+  <div class="form-group">
+    <input  ngui-auto-complete
+            [(ngModel)]="newValue" [source]="users"
+            [list-formatter]="autocompleListFormatter"
+            placeholder="Contients"
+            class="form-control form-width"
+            id="selectUsers"
+            name="test">
+    <button (click)="addUser()" class="btn btn-default ion-plus-round" style="margin-top: 10px;"></button>
+  </div>
+
+
+  <button class="btn btn-success" (click)="submitForm()">Add</button>
+</form>

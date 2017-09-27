@@ -1,0 +1,53 @@
+<div *ngIf="showMsg" class="alert alert-warning">
+  {{msg}}
+</div>
+<div *ngIf="showMsgSuccess" class="alert alert-success">
+  {{msg}}
+</div>
+
+<form>
+  <!--<ba-card cardTitle="Picture Uploader" baCardClass="with-scroll">
+    <ba-picture-uploader [picture]="profile.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+  </ba-card>-->
+  <div class="row">
+    <div class="col-md-2">
+      <ba-card cardTitle="Profile Picture" baCardClass="with-scroll">
+        <img src="{{picture}}">
+      </ba-card>
+    </div>
+    <div class="row col-md-10">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input [(ngModel)]="user.givenName" class="form-control textBold" [ngClass]="{'error': showMsg && user.givenName.length < 3}" id="firstName" placeholder="First Name" name="user.givenName">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="secondName">Second Name</label>
+          <input [(ngModel)]="user.sn" class="form-control textBold" [ngClass]="{'error': showMsg && user.sn.length < 3}" id="secondName" placeholder="Second Name" name="user.sn">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <button class="btn btn-success submitBtn" (click)="submit()">Submit</button>
+      </div>
+    </div>
+
+  </div>
+
+</form>
+<hr>
+<form>
+  <h3>
+    Change Password
+  </h3>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="checkPassword.value1" [ngClass]="{'error': checkPassword.err}" class="form-control" id="password" placeholder="Enter password" name="checkPassword.value1">
+    </div>
+    <div class="form-group">
+      <label for="confPassword">Confirm Password</label>
+      <input type="password" [(ngModel)]="checkPassword.value2" [ngClass]="{'error': checkPassword.err}" class="form-control" id="confPassword" placeholder="Enter password again" name="checkPassword.value2">
+    </div>
+  <button class="btn btn-success" (click)="submitPassword()">Save Password</button>
+</form>

@@ -1,0 +1,50 @@
+<div *ngIf="showMsg" class="alert alert-warning">
+  {{message}}
+</div>
+
+
+<form>
+  <div class="form-group">
+    <label for="givenName">First Name</label>
+    <input class="form-control" [(ngModel)]="item.givenName" [ngClass]="{'warning': showMsg && item.givenName === ''}" id="givenName" name="item.givenName">
+  </div>
+  <div class="form-group">
+    <label for="SN">Second Name</label>
+    <input class="form-control" [(ngModel)]="item.sn" id="SN" [ngClass]="{'warning': showMsg && item.sn === ''}" name="item.sn">
+  </div>
+  <div class="form-group">
+    <label for="Login">Login</label>
+    <input class="form-control" [(ngModel)]="item.uid" id="Login" [ngClass]="{'warning': showMsg && item.uid === ''}" name="item.uid">
+  </div>
+  <label>Shadow Address</label>
+  <ul class="form-group">
+    <li *ngFor="let address of item.shadowAddress; let i = index">
+      <span *ngIf="address !== ''" class="listContent">
+            <button class="col-md-1 btn btn-warning btn-sm ion-close-round" style="margin-left: 25px;margin-top: -6px; width: 40px;" (click)="removeAddressLine(i)"></button>
+            <span class="col-md-8 showAddress">{{address}}@freshcode.org</span>
+      </span>
+    </li>
+  </ul>
+  <div class="addAddressBlock">
+    <input class="form-control with-btn" [(ngModel)]="newAddress" name="address.text">
+    <button class="btn btn-default ion-plus-round" (click)="addAddressLine()"></button>
+  </div>
+  <div class="form-group">
+    <label for="password" style="display: block;">Password</label>
+    <input class="form-control with-btn-2" [(ngModel)]="item.userPassword" [ngClass]="{'warning': showMsg && item.userPassword === ''}" id="password" name="item.userPassword">
+    <button class="btn btn-default" (click)="generateRandomPassword()">Generate</button>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isChat" [label]="'Chat'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isGit" [label]="'Git'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isPost" [label]="'Mail'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <div class="checkbox">
+    <ba-checkbox [(ngModel)]="item.isFile" [label]="'Cloud'" [ngModelOptions]="{standalone: true}"></ba-checkbox>
+  </div>
+  <button class="btn btn-success" (click)="submitForm()">Add</button>
+</form>

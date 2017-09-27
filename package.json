@@ -1,0 +1,28 @@
+{
+  "name": "ldap",
+  "version": "1.0.0",
+  "description": "Admin Panel for change LDAP Tree",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "shell": "node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-node6": "^11.0.0",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "crypto": "^1.0.1",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.15.4",
+    "js-sha512": "^0.4.0",
+    "jsonwebtoken": "^7.4.2",
+    "ldapjs": "^1.0.1",
+    "ldif": "^0.5.1",
+    "md5": "^2.2.1",
+    "path": "^0.12.7",
+    "ssha": "^1.0.1"
+  }
+}

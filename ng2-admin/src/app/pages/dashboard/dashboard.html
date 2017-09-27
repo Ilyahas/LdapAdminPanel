@@ -1,0 +1,11 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" (click)="showHidden(0)" class="btn btn-secondary btn-default" [ngClass]="{'active': isShowHidden === 0}">Hidden</button>
+  <button type="button" (click)="showHidden(1)" class="btn btn-secondary btn-default" [ngClass]="{'active': isShowHidden === 1}">Active</button>
+  <button type="button" (click)="showHidden(2)" class="btn btn-secondary btn-default" [ngClass]="{'active': isShowHidden === 2}">Deleted</button>
+</div>
+<br><br>
+<button (click)="navAddUser()" *ngIf="isShowHidden === 0" class="btn btn-success">Add</button>
+
+<responsive-table-hidden *ngIf="isShowHidden === 0"></responsive-table-hidden>
+<responsive-table *ngIf="isShowHidden === 1"></responsive-table>
+<responsive-table-deleted *ngIf="isShowHidden === 2"></responsive-table-deleted>
