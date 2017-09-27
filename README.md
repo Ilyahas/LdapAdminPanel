@@ -23,7 +23,7 @@ $ cd ng2-admin/
 $ npm install
 $ ng serve
 ```
-2.Client
+3.Client
 ```
 $ cd ng2-client/
 $ npm install
