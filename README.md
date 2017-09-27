@@ -1,7 +1,7 @@
 LDAP Admin Panel
 --------
 
-###Installation
+### Installation
 
 Before intallation you need to set LDAP Serve IP Address in /app/config.js.
 (Also, you can add as much servers as you want. To run another server you need to change it in /app/routes.js and
@@ -29,14 +29,14 @@ $ cd ng2-client/
 $ npm install
 $ ng serve
 ```
-###Accept changes
+### Accept changes
 
 ```
 ng2-admin/$ ng build
 ng2-client/$ ng build
 ```
 
-###OR  if you don't want to change client side (also for final release)
+### OR  if you don't want to change client side (also for final release)
 
 ```
 $ cd ng2-admin/
@@ -51,7 +51,7 @@ $ npm install
 $ npm start
 ```
 
-###Docker setup
+### Docker setup
 
 ```
 $ docker build -t <docker_image name> .
